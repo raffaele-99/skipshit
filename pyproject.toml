@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68.0", "setuptools-scm>=8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skipshit"
+version = "0.1.0"
+description = "YouTube topic-filtering tool — find segments to skip based on topics you want to avoid"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "skipshit contributors" }]
+keywords = ["youtube", "podcast", "transcript", "filter", "skip"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Video",
+]
+dependencies = [
+    "anthropic>=0.39.0",
+    "click>=8.1",
+    "pydantic>=2.0",
+    "youtube-transcript-api>=0.6.0",
+    "yt-dlp>=2024.0",
+    "pyyaml>=6.0",
+    "openai>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[project.scripts]
+skipshit = "skipshit.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["skipshit*"]
